@@ -1,8 +1,11 @@
+#virtual funcns, abstract classes, base/derived class, interfaces, polymorphism ,modularity, hierarchy
+import abc
+from abc import ABC, abstractmethod
 import operator
 
 #----------------------------------------ANIMAL----------------------------------------
 
-class animal(object) :
+class Animal(ABC) :		#abstract class -- interfaces can have only empty methods, not applicable here.
 	def __init__(self, name) :
 		self.position = (0, 0)
 		self.name = name
@@ -19,9 +22,27 @@ class animal(object) :
 		return self.eyecolour
 	def setEyecolour(self, colour) :
 		self.eyecolour = colour
+	def getNose(self) :
+		pass
+	def getFurcolour(self) :
+		pass
+	def setFurcolour(self, colour) :
+		pass
+	def getBeak(self) :
+		pass
+	def getFeathercolour(self) :
+		pass
+	def setFeathercolour(self, colour) :
+		pass
+	def getScalecolour(self) :
+		pass
+	def setScalecolour(self, colour) :
+		pass
 	def move(self, x, y) :
-		self.locomotion(x, y)
-	def digest(self) :
+		pass
+	def speak(self) :
+		pass
+	def digest(self) :				#virtual functions
 		pass
 	def eat(self, food) :
 		print(self.name + " ate the " + food)
@@ -29,13 +50,13 @@ class animal(object) :
 
 #-----------------------------------------------------MAMMAL---------------------------------
 
-class mammal(animal) :
+class Mammal(Animal) :
 	def __init__(self, name) :
 		self.legs = 4
 		self.ears = 2
 		self.nose = 1
 		self.furcolour = "brown"
-		animal.__init__(self, name)
+		Animal.__init__(self, name)
 		print(self.name + " is a mammal.")
 	def getNose(self) :
 		return self.nose
@@ -46,12 +67,12 @@ class mammal(animal) :
 
 #----------------------------------------------------BIRD----------------------------------
 
-class bird(animal) :
+class Bird(Animal) :
 	def __init__(self, name) :
 		self.legs = 2
 		self.beak = 1
 		self.feathercolour = "black"
-		animal.__init__(self, name)
+		Animal.__init__(self, name)
 		print(self.name + " is a bird.")
 	def getBeak(self) :
 		return self.beak
@@ -62,12 +83,12 @@ class bird(animal) :
 
 #-----------------------------------REPTILE------------------------------------
 
-class reptile(animal) :
+class Reptile(Animal) :
 	def __init__(self, name) :
 		self.legs = 4
 		self.nose = 1
 		self.scalecolour = "green"
-		animal.__init__(self, name)
+		Animal.__init__(self, name)
 		print(self.name + " is a reptile.")
 	def getNose(self) :
 		return self.nose
@@ -78,12 +99,12 @@ class reptile(animal) :
 
 
 #--------------------------------------CAT-----------------------------------
-class cat(mammal) :
+class Cat(Mammal) :
 	def __init__(self, name) :
-		mammal.__init__(self, name)
+		Mammal.__init__(self, name)
 	def speak(self) :
 		print("Meow")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "walked to", self.position)
@@ -100,12 +121,12 @@ class cat(mammal) :
 		self.move(4, 3)
 
 #---------------------------------------------COW--------------------------------
-class cow(mammal) :
+class Cow(Mammal) :
 	def __init__(self, name) :
-		mammal.__init__(self, name)
+		Mammal.__init__(self, name)
 	def speak(self) :
 		print("Moo")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "walked to", self.position)
@@ -122,12 +143,12 @@ class cow(mammal) :
 		self.move(2, 0)
 
 #---------------------------------------CROCODILE-------------------------------------
-class crocodile(reptile) :
+class Crocodile(Reptile) :
 	def __init__(self, name) :
-		reptile.__init__(self, name)
+		Reptile.__init__(self, name)
 	def speak(self) :
 		print("Grunt")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "swam to", self.position)
@@ -144,12 +165,12 @@ class crocodile(reptile) :
 		self.move(4, 3)
 
 #------------------------------------------CROW---------------------------------------
-class crow(bird) :
+class Crow(Bird) :
 	def __init__(self, name) :
-		bird.__init__(self, name)
+		Bird.__init__(self, name)
 	def speak(self) :
 		print("Caw")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		print(self.name, "flew to", self.position)
 
@@ -163,12 +184,12 @@ class crow(bird) :
 		self.move(4,4)
 
 #---------------------------------------------DOG------------------------------------
-class dog(mammal) :
+class Dog(Mammal) :
 	def __init__(self, name) :
-		mammal.__init__(self, name)
+		Mammal.__init__(self, name)
 	def speak(self) :
 		print("Woof")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "walked to", self.position)
@@ -185,12 +206,12 @@ class dog(mammal) :
 		self.move(3, 5)
 
 #--------------------------------------DUCK--------------------------------------------
-class duck(bird) :
+class Duck(Bird) :
 	def __init__(self, name) :
-		bird.__init__(self, name)
+		Bird.__init__(self, name)
 	def speak(self) :
 		print("Quack")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "waddled to", self.position)
@@ -207,12 +228,12 @@ class duck(bird) :
 		self.move(2, 4)
 
 #-----------------------------------------------HORSE---------------------------------
-class horse(mammal) :
+class Horse(Mammal) :
 	def __init__(self, name) :
-		mammal.__init__(self, name)
+		Mammal.__init__(self, name)
 	def speak(self) :
 		print("Neigh")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "galloped to", self.position)
@@ -229,12 +250,12 @@ class horse(mammal) :
 		self.move(1, 4)
 
 #-------------------------------------------LION-----------------------------------
-class lion(mammal) :
+class Lion(Mammal) :
 	def __init__(self, name) :
-		mammal.__init__(self, name)
+		Mammal.__init__(self, name)
 	def speak(self) :
 		print("Roar")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		if x >= y :
 			print(self.name, "walked to", self.position)
@@ -250,12 +271,12 @@ class lion(mammal) :
 		self.move(2, 6)
 
 #--------------------------------------------PARROT--------------------------------
-class parrot(bird) :
+class Parrot(Bird) :
 	def __init__(self, name) :
-		bird.__init__(self, name)
+		Bird.__init__(self, name)
 	def speak(self) :
 		print("Squawk")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		print(self.name, "flew to", self.position)
 
@@ -269,12 +290,12 @@ class parrot(bird) :
 		self.move(0, 7)
 
 #------------------------------------------SNAKE--------------------------------------------
-class snake(reptile) :
+class Snake(Reptile) :
 	def __init__(self, name) :
-		reptile.__init__(self, name)
+		Reptile.__init__(self, name)
 	def speak(self) :
 		print("Hiss")
-	def locomotion(self, x, y) :
+	def move(self, x, y) :
 		self.position = tuple(map(operator.add, self.position, (x, y)))
 		print(self.name, "slithered to", self.position)
 
@@ -291,32 +312,32 @@ class snake(reptile) :
 #-----------------------------------------------------------------------------------------------
 
 if __name__ == "__main__" :
-	a1 = cat("Jerry")
+	a1 = Cat("Jerry")
 	a1.main()
 
-	a2 = cow("Nandi")
+	a2 = Cow("Nandi")
 	a2.main()
 
-	a3 = crocodile("Koko")
+	a3 = Crocodile("Koko")
 	a3.main()
 
-	a4 = crow("Kalia")
+	a4 = Crow("Kalia")
 	a4.main()
 
-	a5 = dog("Snoopy")
+	a5 = Dog("Snoopy")
 	a5.main()
 
-	a6 = duck("Donald")
+	a6 = Duck("Donald")
 	a6.main()
 
-	a7 = horse("Philip")
+	a7 = Horse("Philip")
 	a7.main()
 
-	a8 = lion("Leo")
+	a8 = Lion("Leo")
 	a8.main()
 
-	a9 = parrot("Mithu")
+	a9 = Parrot("Mithu")
 	a9.main()
 
-	a10 = snake("Skeeter")
+	a10 = Snake("Skeeter")
 	a10.main()
