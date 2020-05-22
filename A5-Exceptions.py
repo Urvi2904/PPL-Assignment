@@ -1,5 +1,5 @@
 try:
-   fh = open(input("Enter file name"),mode=input("Enter mode in which you would like to open the file"))
+   fh = open(input("Enter file name : "),mode=input("Enter mode in which you would like to open the file : "))
    print(fh.read())
    fh.write("This is my test file for exception handling!!")
 except (UnicodeDecodeError):
