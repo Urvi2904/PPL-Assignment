@@ -1,8 +1,10 @@
+#abstraction, encapsulation, public and private access specifiers
 import operator
 
 #--------------------------------------CAT-----------------------------------
-class cat() :
+class Cat() :					#encapsulation
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 4
 		self.__eyes = 2
 		self.__ears = 2
@@ -36,25 +38,26 @@ class cat() :
 		else :
 			print(self.__name, "climbed to", self.__position)
 	def move(self, x, y) :
-		a1.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
 		pass
-	def eat(self, food) :
-		print(a1.__name + " ate the " + food)
-		a1.__digest()
+	def eat(self, food) :			#abstraction
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a1.__name + " is a cat with " + a1.getFurcolour() + " fur and " + a1.getEyecolour() + " eyes.")
-		a1.setEyecolour("yellow")
-		a1.setFurcolour("white")
-		print(a1.__name + " is a cat with " + a1.getFurcolour() + " fur and " + a1.getEyecolour() + " eyes.")
-		a1.speak()
-		a1.eat("mouse")
-		a1.move(4,3)
+		print(self.__name + " is a cat with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("yellow")
+		self.setFurcolour("white")
+		print(self.__name + " is a cat with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("mouse")
+		self.move(4,3)
 
 #---------------------------------------------COW--------------------------------
-class cow() :
+class Cow() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 4
 		self.__eyes = 2
 		self.__ears = 2
@@ -106,8 +109,9 @@ class cow() :
 		self.move(2,0)
 
 #---------------------------------------CROCODILE-------------------------------------
-class crocodile() :
+class Crocodile() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 4
 		self.__eyes = 2
 		self.__nose = 1
@@ -136,24 +140,25 @@ class crocodile() :
 		else :
 			print(self.__name, "climbed to", self.__position)
 	def move(self, x, y) :
-		a3.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
 		pass
 	def eat(self, food) :
-		print(a3.__name + " ate the " + food)
-		a3.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a3.__name + " is a crocodile with " + a3.getScalecolour() + " scales and " + a3.getEyecolour() + " eyes.")
-		a3.setEyecolour("black")
-		print(a3.__name + " is a crocodile with " + a3.getScalecolour() + " scales and " + a3.getEyecolour() + " eyes.")
-		a3.speak()
-		a3.eat("fish")
-		a3.move(4, 3)
+		print(self.__name + " is a crocodile with " + self.getScalecolour() + " scales and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("black")
+		print(self.__name + " is a crocodile with " + self.getScalecolour() + " scales and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("fish")
+		self.move(4, 3)
 
 #------------------------------------------CROW---------------------------------------
-class crow() :
+class Crow() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 2
 		self.__eyes = 2
 		self.__beak = 1
@@ -181,25 +186,26 @@ class crow() :
 		self.__position = tuple(map(operator.add, self.__position, (x, y)))
 		print(self.__name, "flew to", self.__position)
 	def move(self, x, y) :
-		a4.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
                 pass
 	def eat(self, food) :
-		print(a4.__name + " ate the " + food)
-		a4.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a4.__name + " is a crow with " + a4.getFeathercolour() + " feathers and " + a4.getEyecolour() + " eyes.")
-		a4.setEyecolour("brown")
-		a4.setFeathercolour("black")
-		print(a4.__name + " is a crow with " + a4.getFeathercolour() + " feathers and " + a4.getEyecolour() + " eyes.")
-		a4.speak()
-		a4.eat("rat")
-		a4.move(4,4)
+		print(self.__name + " is a crow with " + self.getFeathercolour() + " feathers and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("brown")
+		self.setFeathercolour("black")
+		print(self.__name + " is a crow with " + self.getFeathercolour() + " feathers and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("rat")
+		self.move(4,4)
 
 #---------------------------------------------DOG------------------------------------
-class dog() :
+class Dog() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 4
 		self.__eyes = 2
 		self.__ears = 2
@@ -233,25 +239,26 @@ class dog() :
 		else :
 			print(self.__name, "climbed to", self.__position)
 	def move(self, x, y) :
-		a5.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
                 pass
 	def eat(self, food) :
-		print(a5.__name + " ate the " + food)
-		a5.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a5.__name + " is a dog with " + a5.getFurcolour() + " fur and " + a5.getEyecolour() + " eyes.")
-		a5.setEyecolour("brown")
-		a5.setFurcolour("golden")
-		print(a5.__name + " is a dog with " + a5.getFurcolour() + " fur and " + a5.getEyecolour() + " eyes.")
-		a5.speak()
-		a5.eat("chicken")
-		a5.move(3,5)
+		print(self.__name + " is a dog with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("brown")
+		self.setFurcolour("golden")
+		print(self.__name + " is a dog with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("chicken")
+		self.move(3,5)
 
 #--------------------------------------DUCK--------------------------------------------
-class duck() :
+class Duck() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 2
 		self.__eyes = 2
 		self.__beak = 1
@@ -282,25 +289,26 @@ class duck() :
 		else :
 			print(self.__name, "flew to", self.__position)
 	def move(self, x, y) :
-		a6.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
                 pass
 	def eat(self, food) :
-		print(a6.__name + " ate the " + food)
-		a6.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a6.__name + " is a duck with " + a6.getFeathercolour() + " feathers and " + a6.getEyecolour() + " eyes.")
-		a6.setEyecolour("red")
-		a6.setFeathercolour("brown")
-		print(a6.__name + " is a duck with " + a6.getFeathercolour() + " feathers and " + a6.getEyecolour() + " eyes.")
-		a6.speak()
-		a6.eat("corn")
-		a6.move(2,4)
+		print(self.__name + " is a duck with " + self.getFeathercolour() + " feathers and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("red")
+		self.setFeathercolour("brown")
+		print(self.__name + " is a duck with " + self.getFeathercolour() + " feathers and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("corn")
+		self.move(2,4)
 
 #-----------------------------------------------HORSE---------------------------------
-class horse() :
+class Horse() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 4
 		self.__eyes = 2
 		self.__ears = 2
@@ -334,25 +342,26 @@ class horse() :
 		else :
 			print(self.__name, "climbed to", self.__position)
 	def move(self, x, y) :
-		a7.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
 		pass
 	def eat(self, food) :
-		print(a7.__name + " ate the " + food)
-		a7.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a7.__name + " is a horse with " + a7.getFurcolour() + " fur and " + a7.getEyecolour() + " eyes.")
-		a7.setEyecolour("brown")
-		a7.setFurcolour("white")
-		print(a7.__name + " is a horse with " + a7.getFurcolour() + " fur and " + a7.getEyecolour() + " eyes.")
-		a7.speak()
-		a7.eat("apple")
-		a7.move(1,4)
+		print(self.__name + " is a horse with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("brown")
+		self.setFurcolour("white")
+		print(self.__name + " is a horse with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("apple")
+		self.move(1,4)
 
 #-------------------------------------------LION-----------------------------------
-class lion() :
+class Lion() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 4
 		self.__eyes = 2
 		self.__ears = 2
@@ -384,24 +393,25 @@ class lion() :
 		else :
 			print(self.__name, "climbed to", self.__position)
 	def move(self, x, y) :
-		a8.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
                 pass
 	def eat(self, food) :
-		print(a8.__name + " ate the " + food)
-		a8.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a8.__name + " is a lion with " + a8.getFurcolour() + " fur and " + a8.getEyecolour() + " eyes.")
-		a8.setEyecolour("yellow")
-		print(a8.__name + " is a lion with " + a8.getFurcolour() + " fur and " + a8.getEyecolour() + " eyes.")
-		a8.speak()
-		a8.eat("meat")
-		a8.move(2,6)
+		print(self.__name + " is a lion with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("yellow")
+		print(self.__name + " is a lion with " + self.getFurcolour() + " fur and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("meat")
+		self.move(2,6)
 
 #--------------------------------------------PARROT--------------------------------
-class parrot() :
+class Parrot() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__legs = 2
 		self.__eyes = 2
 		self.__beak = 1
@@ -429,25 +439,26 @@ class parrot() :
 		self.__position = tuple(map(operator.add, self.__position, (x, y)))
 		print(self.__name, "flew to", self.__position)
 	def move(self, x, y) :
-		a9.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
                 pass
 	def eat(self, food) :
-		print(a9.__name + " ate the " + food)
-		a9.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a9.__name + " is a parrot with " + a9.getFeathercolour() + " feathers and " + a9.getEyecolour() + " eyes.")
-		a9.setEyecolour("brown")
-		a9.setFeathercolour("red")
-		print(a9.__name + " is a parrot with " + a9.getFeathercolour() + " feathers and " + a9.getEyecolour() + " eyes.")
-		a9.speak()
-		a9.eat("chilli")
-		a9.move(0,7)
+		print(self.__name + " is a parrot with " + self.getFeathercolour() + " feathers and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("brown")
+		self.setFeathercolour("red")
+		print(self.__name + " is a parrot with " + self.getFeathercolour() + " feathers and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("chilli")
+		self.move(0,7)
 
 #------------------------------------------SNAKE--------------------------------------------
-class snake() :
+class Snake() :
 	def __init__(self, name) :
+		print("-----------------------------------------------------------------")
 		self.__eyes = 2
 		self.__nose = 1
 		self.__eyecolour = "green"
@@ -472,49 +483,49 @@ class snake() :
 		self.__position = tuple(map(operator.add, self.__position, (x, y)))
 		print(self.__name, "slithered to", self.__position)
 	def move(self, x, y) :
-		a10.__locomotion(x, y)
+		self.__locomotion(x, y)
 	def __digest(self) :
 		pass
 	def eat(self, food) :
-		print(a10.__name + " ate the " + food)
-		a10.__digest()
+		print(self.__name + " ate the " + food)
+		self.__digest()
 
 	def main(self) :
-		print(a10.__name + " is a snake with " + a10.getScalecolour() + " scales and " + a10.getEyecolour() + " eyes.")
-		a10.setEyecolour("yellow")
-		a10.setScalecolour("green")
-		print(a10.__name + " is a snake with " + a10.getScalecolour() + " scales and " + a10.getEyecolour() + " eyes.")
-		a10.speak()
-		a10.eat("mouse")
-		a10.move(2,1)
+		print(self.__name + " is a snake with " + self.getScalecolour() + " scales and " + self.getEyecolour() + " eyes.")
+		self.setEyecolour("yellow")
+		self.setScalecolour("green")
+		print(self.__name + " is a snake with " + self.getScalecolour() + " scales and " + self.getEyecolour() + " eyes.")
+		self.speak()
+		self.eat("mouse")
+		self.move(2,1)
 
 if __name__ == "__main__" :
-	a1 = cat("Jerry")
+	a1 = Cat("Jerry")
 	a1.main()
 
-	a2 = cow("Nandi")
+	a2 = Cow("Nandi")
 	a2.main()
 
-	a3 = crocodile("Koko")
+	a3 = Crocodile("Koko")
 	a3.main()
 
-	a4 = crow("Kalia")
+	a4 = Crow("Kalia")
 	a4.main()
 
-	a5 = dog("Snoopy")
+	a5 = Dog("Snoopy")
 	a5.main()
 
-	a6 = duck("Donald")
+	a6 = Duck("Donald")
 	a6.main()
 
-	a7 = horse("Philip")
+	a7 = Horse("Philip")
 	a7.main()
 
-	a8 = lion("Leo")
+	a8 = Lion("Leo")
 	a8.main()
 
-	a9 = parrot("Mithu")
+	a9 = Parrot("Mithu")
 	a9.main()
 
-	a10 = snake("Skeeter")
+	a10 = Snake("Skeeter")
 	a10.main()
