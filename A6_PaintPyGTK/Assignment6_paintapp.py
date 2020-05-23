@@ -11,17 +11,21 @@ class PaintApp(object):
         self.root = Tk()
         self.root.title("PaintApp")
 
-        self.brush_button = Button(self.root, text='Brush', command=self.use_brush)
-        self.brush_button.grid(row=0, column=1)
+        brush_icon = PhotoImage(file = r"./Icons/brush.png")
+        self.brush_button = Button(self.root, image = brush_icon, bg = 'white', command = self.use_brush)
+        self.brush_button.grid(row = 0, column = 0, ipadx = 15, ipady = 15, padx = 10, pady = 10)
 
-        self.color_button = Button(self.root, text='Colour', command=self.choose_color)
-        self.color_button.grid(row=0, column=2)
+        palette_icon = PhotoImage(file = r"./Icons/palette.png")
+        self.color_button = Button(self.root, image = palette_icon, bg = 'white', command = self.choose_color)
+        self.color_button.grid(row = 0, column = 1, ipadx = 15, ipady = 15, padx = 10, pady = 10)
 
-        self.eraser_button = Button(self.root, text='Eraser', command=self.use_eraser)
-        self.eraser_button.grid(row=0, column=3)
+        eraser_icon = PhotoImage(file = r"./Icons/eraser.png")
+        self.eraser_button = Button(self.root, image = eraser_icon, bg = 'white', command = self.use_eraser)
+        self.eraser_button.grid(row = 0, column = 2, ipadx = 15, ipady = 15, padx = 10, pady = 10)
 
-        self.clear_button = Button(self.root, text='Clear', command=self.clear)
-        self.clear_button.grid(row=0, column=4)
+        clear_icon = PhotoImage(file = r"./Icons/clear.png")
+        self.clear_button = Button(self.root, image = clear_icon, bg = 'white', command = self.clear)
+        self.clear_button.grid(row = 0, column = 4, ipadx = 15, ipady = 15, padx = 10, pady = 10)
 
         self.choose_size_button = Scale(self.root, from_=1, to=10, orient=HORIZONTAL)
         self.choose_size_button.grid(row=0, column=5)
