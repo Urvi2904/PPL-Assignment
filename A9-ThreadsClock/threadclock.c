@@ -4,7 +4,7 @@
 #include<unistd.h>
 
 int secs, mins, hrs;
-
+pthread_spinlock_t lock1, lock2;
 
 /*void delay(int number_of_seconds) {  
 
@@ -24,8 +24,10 @@ void *seconds() {
 	while(1) {
 
 		//delay(1)
+		pthread_spin_lock(&lock1);
 		sleep(1);
 		secs++;
+		pthread_spin_unlock(&lock1);
 
 	}
 
@@ -35,8 +37,12 @@ void *seconds() {
 void *minutes() {
 	while(1) {
 		if(secs == 60){
+			pthread_spin_lock(&lock1);
 			secs = 0;
-			mins++;			
+			pthread_spin_unlock(&lock1);
+			pthread_spin_lock(&lock2);
+			mins++;	
+			pthread_spin_unlock(&lock2);		
 		}
 	}
 }
@@ -47,8 +53,9 @@ void *hour() {
 	while(1) {
 
 		if(mins == 60){
-
-			mins = 0;			
+			pthread_spin_lock(&lock2);
+			mins = 0;
+			pthread_spin_unlock(&lock2);			
 			hrs++;
 
 		}
@@ -83,6 +90,9 @@ int main() {
 	
 	printf("Enter starting second: ");
 	scanf("%d", &secs);	
+	
+	pthread_spin_init(&lock1, PTHREAD_PROCESS_SHARED);
+	pthread_spin_init(&lock2, PTHREAD_PROCESS_SHARED);
 
 	printf("\nClock\n\n");
 		
